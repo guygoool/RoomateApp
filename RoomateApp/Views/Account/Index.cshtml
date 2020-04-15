@@ -1,7 +1,68 @@
-﻿
+﻿@model RoomateApp.Models.UserViewModel
 @{
     ViewData["Title"] = "Account";
 }
+<style>
+    .login {
+        background-color: #C8E0E8;
+        display: flex;
+        flex-direction: column;
+        width: 10em;
+    }
+</style>
 
-<h1>Index</h1>
+<h1>Sign in</h1>
+@using (Html.BeginForm())
+{
+    <div class="form-group">
+        @Html.LabelFor(model => model.FirstName)
+        <div>
+            @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.LastName)
+        <div>
+            @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Gender)
+        <div>
+            @Html.DropDownListFor(model => model.Gender, new SelectList(Enum.GetValues(typeof(Gender))),
+                    "Select Gender",
+                    new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Email)
+        <div>
+            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.PhoneNumber)
+        <div>
+            @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Password)
+        <div>
+            @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+        </div>
+    </div>
 
+    <div class="form-group">
+        <div>
+            <input type="submit" value="Save" />
+        </div>
+    </div>
+
+}

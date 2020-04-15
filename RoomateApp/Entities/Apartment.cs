@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace RoomateApp.EfModels
+namespace RoomateApp.Entities
 {
     public partial class Apartment
     {

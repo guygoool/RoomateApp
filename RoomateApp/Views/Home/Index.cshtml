@@ -1,8 +1,27 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+<style>
+    .findApt {
+        background-color: #C8E0E8;
+        display: flex;
+        flex-direction: column;
+        width: 10em;
+        height: 10em;
+        border: solid 5px;
+    }
+</style>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<h1>Home page</h1>
+
+<a href="@Url.Action("Index", "Home")">
+    <div class="findApt">
+        Publish apartment
+    </div>
+</a>
+
+<a href="@Url.Action("Index", "Home")">
+    <div class="findApt">
+        Search apartment
+    </div>
+</a>

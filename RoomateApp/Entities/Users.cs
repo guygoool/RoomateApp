@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace RoomateApp.EfModels
+namespace RoomateApp.Entities
 {
     public partial class Users
     {
@@ -14,7 +14,7 @@ namespace RoomateApp.EfModels
         public int Id { get; set; }
         public DateTime Cretead { get; set; }
         public DateTime Modified { get; set; }
-        public string UserLogin { get; set; }
+        public string Email { get; set; }
         public string Password { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }

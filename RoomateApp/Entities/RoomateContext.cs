@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
-namespace RoomateApp.EfModels
+namespace RoomateApp.Entities
 {
     public partial class RoomateContext : DbContext
     {
@@ -208,6 +208,10 @@ namespace RoomateApp.EfModels
             {
                 entity.Property(e => e.Cretead).HasDefaultValueSql("(getdate())");
 
+                entity.Property(e => e.Email)
+                    .IsRequired()
+                    .HasMaxLength(50);
+
                 entity.Property(e => e.FirstName)
                     .IsRequired()
                     .HasColumnName("First_Name")
@@ -226,17 +230,12 @@ namespace RoomateApp.EfModels
 
                 entity.Property(e => e.Password)
                     .IsRequired()
-                    .HasMaxLength(10);
+                    .HasMaxLength(15);
 
                 entity.Property(e => e.PhoneNumber)
                     .HasColumnName("Phone_Number")
                     .HasMaxLength(10)
                     .IsUnicode(false);
-
-                entity.Property(e => e.UserLogin)
-                    .IsRequired()
-                    .HasColumnName("User_Login")
-                    .HasMaxLength(15);
             });
 
             OnModelCreatingPartial(modelBuilder);

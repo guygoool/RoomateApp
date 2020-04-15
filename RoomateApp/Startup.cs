@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using RoomateApp.EfModels;
-//dotnet ef dbcontext scaffold "Server=GUY-PC\DEVEXPRESS;Database=sapishush;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -o EfModels
+using RoomateApp.Entities;
+//dotnet ef dbcontext scaffold "Server=GUY-PC\DEVEXPRESS;Database=sapishush;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -o Entities
 namespace RoomateApp
 {
     public class Startup
@@ -26,7 +26,7 @@ namespace RoomateApp
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<RoomateContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("Server=GUY-PC\\DEVEXPRESS;Database=sapishush;Trusted_Connection=True;")));
+                options.UseSqlServer("Server=GUY-PC\\DEVEXPRESS;Database=sapishush;Trusted_Connection=True;"));
 
             services.AddControllersWithViews();
         }

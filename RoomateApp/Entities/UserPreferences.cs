@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace RoomateApp.EfModels
+namespace RoomateApp.Entities
 {
-    public partial class ApartmentPreferences
+    public partial class UserPreferences
     {
         public int Id { get; set; }
-        public int ApartmentId { get; set; }
         public DateTime Cretead { get; set; }
         public DateTime Modified { get; set; }
+        public int UserId { get; set; }
         public byte SmokeRate { get; set; }
         public byte ReligiousRate { get; set; }
         public byte CleanRate { get; set; }
@@ -17,7 +17,9 @@ namespace RoomateApp.EfModels
         public byte KosherKitchenRate { get; set; }
         public byte PetFriendlyRate { get; set; }
         public byte AgePreferenceRate { get; set; }
+        public decimal? MinPriceRange { get; set; }
+        public decimal? MaxPriceRange { get; set; }
 
-        public virtual Apartment Apartment { get; set; }
+        public virtual Users User { get; set; }
     }
 }

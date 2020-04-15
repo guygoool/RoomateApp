@@ -3,7 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29806.167
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RoomateApp", "RoomateApp\RoomateApp.csproj", "{F7F89B7C-08C4-453B-BA6F-91E3930BE195}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RoomateApp", "RoomateApp\RoomateApp.csproj", "{F7F89B7C-08C4-453B-BA6F-91E3930BE195}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution items", "Solution items", "{72F0EFCF-96C3-401D-9E28-BC3C56E02EDE}"
+	ProjectSection(SolutionItems) = preProject
+		..\RoomateApp_OLD\Final-Project-Logic.sql = ..\RoomateApp_OLD\Final-Project-Logic.sql
+		..\RoomateApp_OLD\Final-Project.sql = ..\RoomateApp_OLD\Final-Project.sql
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
