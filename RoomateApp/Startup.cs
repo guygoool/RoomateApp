@@ -5,11 +5,12 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-//dotnet ef dbcontext scaffold "Server=GUY-PC\DEVEXPRESS;Database=sapishush;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -o Models
-//dotnet ef Scaffold-DbContext "Server=GUY-PC\DEVEXPRESS;Database=sapishush;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models -Context "YourOwnContext"
+using RoomateApp.EfModels;
+//dotnet ef dbcontext scaffold "Server=GUY-PC\DEVEXPRESS;Database=sapishush;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -o EfModels
 namespace RoomateApp
 {
     public class Startup
@@ -24,6 +25,9 @@ namespace RoomateApp
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<RoomateContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("Server=GUY-PC\\DEVEXPRESS;Database=sapishush;Trusted_Connection=True;")));
+
             services.AddControllersWithViews();
         }
 
