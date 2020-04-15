@@ -8,7 +8,8 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-
+//dotnet ef dbcontext scaffold "Server=GUY-PC\DEVEXPRESS;Database=sapishush;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -o Models
+//dotnet ef Scaffold-DbContext "Server=GUY-PC\DEVEXPRESS;Database=sapishush;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models -Context "YourOwnContext"
 namespace RoomateApp
 {
     public class Startup
