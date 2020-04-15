@@ -37,10 +37,4 @@ namespace RoomateApp.Models
         [Required]
         public string AdditionalComments { get; set; }
     }
-
-    public enum Gender
-    {
-        Male = 1,
-        Female = 2
-    }
 }
