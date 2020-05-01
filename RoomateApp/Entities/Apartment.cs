@@ -7,7 +7,6 @@ namespace RoomateApp.Entities
     {
         public Apartment()
         {
-            ApartmentPreferences = new HashSet<ApartmentPreferences>();
             RoomDetails = new HashSet<RoomDetails>();
         }
 
@@ -32,7 +31,7 @@ namespace RoomateApp.Entities
         public string AdditionalComments { get; set; }
 
         public virtual Users User { get; set; }
-        public virtual ICollection<ApartmentPreferences> ApartmentPreferences { get; set; }
+        public virtual ApartmentPreferences ApartmentPreferences { get; set; }
         public virtual ICollection<RoomDetails> RoomDetails { get; set; }
     }
 }

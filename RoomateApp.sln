@@ -7,8 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RoomateApp", "RoomateApp\Ro
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution items", "Solution items", "{72F0EFCF-96C3-401D-9E28-BC3C56E02EDE}"
 	ProjectSection(SolutionItems) = preProject
-		..\RoomateApp_OLD\Final-Project-Logic.sql = ..\RoomateApp_OLD\Final-Project-Logic.sql
-		..\RoomateApp_OLD\Final-Project.sql = ..\RoomateApp_OLD\Final-Project.sql
+		..\RoomateApp_OLD\FinalProject-Logic.sql = ..\RoomateApp_OLD\FinalProject-Logic.sql
+		..\RoomateApp_OLD\FinalProject.sql = ..\RoomateApp_OLD\FinalProject.sql
 	EndProjectSection
 EndProject
 Global

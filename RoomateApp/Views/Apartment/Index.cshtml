@@ -1,0 +1,187 @@
+﻿@model RoomateApp.Models.ApartmentViewModel
+@{
+    ViewData["Title"] = "Apartment";
+}
+
+<h1>Apartment</h1>
+@using (Html.BeginForm())
+{
+    <div class="form-group">
+        <div>
+            @Html.LabelFor(model => model.Floor)
+            @Html.EditorFor(model => model.Floor, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Floor, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        <div>
+            @Html.LabelFor(model => model.RoomsCount)
+            @Html.EditorFor(model => model.RoomsCount, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.RoomsCount, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        <div>
+            @Html.LabelFor(model => model.AvailableRoomsCount)
+            @Html.EditorFor(model => model.AvailableRoomsCount, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.AvailableRoomsCount, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        <div>
+            @Html.LabelFor(model => model.LeaseStartDate)
+            @Html.EditorFor(model => model.LeaseStartDate, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.LeaseStartDate, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        <div>
+            @Html.LabelFor(model => model.HasLift)
+            @Html.EditorFor(model => model.HasLift, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.HasLift, "", new { @class = "text-danger" })
+        </div>
+        <div>
+            @Html.LabelFor(model => model.HasLivingroom)
+            @Html.EditorFor(model => model.HasLivingroom, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.HasLivingroom, "", new { @class = "text-danger" })
+        </div>
+        <div>
+            @Html.LabelFor(model => model.HasParking)
+            @Html.EditorFor(model => model.HasParking, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.HasParking, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        <div>
+            @Html.LabelFor(model => model.HouseholdPrice)
+            @Html.EditorFor(model => model.HouseholdPrice, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.HouseholdPrice, "", new { @class = "text-danger" })
+        </div>
+        <div>
+            @Html.LabelFor(model => model.TaxPrice)
+            @Html.EditorFor(model => model.TaxPrice, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.TaxPrice, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        <div>
+            @Html.LabelFor(model => model.AdditionalComments)
+            @Html.EditorFor(model => model.AdditionalComments, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.AdditionalComments, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        <h1>Room details</h1>
+        <div>
+            @Html.LabelFor(model => model.RoomDetails.RoomRentPrice)
+            @Html.EditorFor(model => model.RoomDetails.RoomRentPrice, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.RoomDetails.RoomRentPrice, "", new { @class = "text-danger" })
+        </div>
+        <div>
+            @Html.LabelFor(model => model.RoomDetails.RoomRentSize)
+            @Html.EditorFor(model => model.RoomDetails.RoomRentSize, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.RoomDetails.RoomRentSize, "", new { @class = "text-danger" })
+        </div>
+        <div>
+            @Html.LabelFor(model => model.RoomDetails.IsPrivateShower)
+            @Html.EditorFor(model => model.RoomDetails.IsPrivateShower, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.RoomDetails.IsPrivateShower, "", new { @class = "text-danger" })
+        </div>
+        <div>
+            @Html.LabelFor(model => model.RoomDetails.IsPrivateToilet)
+            @Html.EditorFor(model => model.RoomDetails.IsPrivateToilet, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.RoomDetails.IsPrivateToilet, "", new { @class = "text-danger" })
+        </div>
+        <div>
+            @Html.LabelFor(model => model.RoomDetails.IsPrivateBalcony)
+            @Html.EditorFor(model => model.RoomDetails.IsPrivateBalcony, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.RoomDetails.IsPrivateBalcony, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        <h1>Preferences</h1>
+        <div>
+            @Html.LabelFor(model => model.Preferences.AgePreferenceRate)
+            @Html.EditorFor(model => model.Preferences.AgePreferenceRate, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Preferences.AgePreferenceRate, "", new { @class = "text-danger" })
+        </div>
+        <div>
+            @Html.LabelFor(model => model.Preferences.SmokeRate)
+            @Html.EditorFor(model => model.Preferences.SmokeRate, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Preferences.SmokeRate, "", new { @class = "text-danger" })
+        </div>
+        <div>
+            @Html.LabelFor(model => model.Preferences.ReligiousRate)
+            @Html.EditorFor(model => model.Preferences.ReligiousRate, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Preferences.ReligiousRate, "", new { @class = "text-danger" })
+        </div>
+        <div>
+            @Html.LabelFor(model => model.Preferences.FoodIssuesRate)
+            @Html.EditorFor(model => model.Preferences.FoodIssuesRate, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Preferences.FoodIssuesRate, "", new { @class = "text-danger" })
+        </div>
+        <div>
+            @Html.LabelFor(model => model.Preferences.KosherKitchenRate)
+            @Html.EditorFor(model => model.Preferences.KosherKitchenRate, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Preferences.KosherKitchenRate, "", new { @class = "text-danger" })
+        </div>
+        <div>
+            @Html.LabelFor(model => model.Preferences.CleanRate)
+            @Html.EditorFor(model => model.Preferences.CleanRate, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Preferences.CleanRate, "", new { @class = "text-danger" })
+        </div>
+        <div>
+            @Html.LabelFor(model => model.Preferences.PetFriendlyRate)
+            @Html.EditorFor(model => model.Preferences.PetFriendlyRate, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Preferences.PetFriendlyRate, "", new { @class = "text-danger" })
+        </div>
+        <div>
+            @Html.LabelFor(model => model.Preferences.SocialFormatRate)
+            @Html.EditorFor(model => model.Preferences.SocialFormatRate, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Preferences.SocialFormatRate, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div>
+            <input type="submit" value="Save" />
+        </div>
+    </div>
+
+    <div>
+        <div id="map"></div>
+        <br>
+        <button id="confirmPosition">Confirm Position</button>
+        <br>
+        <p>On idle position: <span id="onIdlePositionView"></span></p>
+        <p>On click position: <span id="onClickPositionView"></span></p>
+        <script>
+            // Get element references
+            var confirmBtn = document.getElementById('confirmPosition');
+            var onClickPositionView = document.getElementById('onClickPositionView');
+            var onIdlePositionView = document.getElementById('onIdlePositionView');
+
+            // Initialize locationPicker plugin
+            var lp = new locationPicker('map', {
+                setCurrentPosition: true, // You can omit this, defaults to true
+            }, {
+                zoom: 15 // You can set any google map options here, zoom defaults to 15
+            });
+
+            // Listen to button onclick event
+            confirmBtn.onclick = function () {
+                // Get current location and show it in HTML
+                var location = lp.getMarkerPosition();
+                onClickPositionView.innerHTML = 'The chosen location is ' + location.lat + ',' + location.lng;
+            };
+
+            // Listen to map idle event, listening to idle event more accurate than listening to ondrag event
+            google.maps.event.addListener(lp.map, 'idle', function (event) {
+                // Get current location and show it in HTML
+                var location = lp.getMarkerPosition();
+                onIdlePositionView.innerHTML = 'The chosen location is ' + location.lat + ',' + location.lng;
+            });
+        </script>
+    </div>
+
+}

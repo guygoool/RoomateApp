@@ -9,32 +9,28 @@ namespace RoomateApp.Models
     public class ApartmentViewModel
     {
         public int Id { get; set; }
-        [Required]
         public string City { get; set; }
         public string Neighberhood { get; set; }
-        [Required]
         public string Street { get; set; }
-        [Required]
         public string HouseNumber { get; set; }
         [Required]
-        public string Floor { get; set; }
+        public byte Floor { get; set; }
         [Required]
+        [Display(Name = "תאריך תחילת חוזה")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime LeaseStartDate { get; set; }
-        [Required]
         public bool HasLift { get; set; }
-        [Required]
         public bool HasParking { get; set; }
         [Required]
-        public int RoomsCount { get; set; }
+        public byte RoomsCount { get; set; }
         [Required]
-        public int AvailableRoomsCount { get; set; }
-        [Required]
+        public byte AvailableRoomsCount { get; set; }
         public bool HasLivingroom { get; set; }
-        [Required]
         public int HouseholdPrice { get; set; }
-        [Required]
         public int TaxPrice { get; set; }
-        [Required]
         public string AdditionalComments { get; set; }
+        public RoomDetailsViewModel RoomDetails { get; set; }
+        public ApartmentPrefViewModel Preferences { get; set; }
     }
 }

@@ -116,8 +116,8 @@ namespace RoomateApp.Entities
                 entity.Property(e => e.SocialFormatRate).HasColumnName("Social_Format_Rate");
 
                 entity.HasOne(d => d.Apartment)
-                    .WithMany(p => p.ApartmentPreferences)
-                    .HasForeignKey(d => d.ApartmentId)
+                    .WithOne(p => p.ApartmentPreferences)
+                    .HasForeignKey<ApartmentPreferences>(d => d.ApartmentId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("fk_ApartmentPreferences_Apartment");
             });
