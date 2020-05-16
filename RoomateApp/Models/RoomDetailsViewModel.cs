@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RoomateApp.Entities;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -19,5 +20,21 @@ namespace RoomateApp.Models
         [Required]
         public bool IsPrivateBalcony { get; set; }
         public string StayedFurniture { get; set; }
+    }
+
+    public static class RoomDetailsExtensions
+    {
+        public static RoomDetailsViewModel ToViewModel(this RoomDetails roomDetails)
+        {
+            return roomDetails == null ? null : new RoomDetailsViewModel
+            {
+                IsPrivateBalcony = roomDetails.PrivateBalcony.GetValueOrDefault(false),
+                IsPrivateShower = roomDetails.PrivateShower.GetValueOrDefault(false),
+                IsPrivateToilet = roomDetails.PrivateToilet.GetValueOrDefault(false),
+                RoomRentPrice = roomDetails.RoomRent,
+                RoomRentSize = roomDetails.RoomSize.GetValueOrDefault(0),
+                StayedFurniture = roomDetails.StayedFurniture,
+            };
+        }
     }
 }

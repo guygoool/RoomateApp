@@ -8,6 +8,7 @@ namespace RoomateApp.Models
 {
     public class UserViewModel
     {
+        public int Id { get; set; }
         [Required]
         public string FirstName { get; set; }
         [Required]

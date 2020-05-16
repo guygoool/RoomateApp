@@ -23,10 +23,8 @@ namespace RoomateApp.Entities
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            if (!optionsBuilder.IsConfigured)
-            {
-                optionsBuilder.UseSqlServer("Server=GUY-PC\\DEVEXPRESS;Database=sapishush;Trusted_Connection=True;", x => x.UseNetTopologySuite());
-            }
+            optionsBuilder.UseSqlServer("Server=GUY-PC\\DEVEXPRESS;Database=sapishush;Trusted_Connection=True;", sqlOptions => sqlOptions.UseNetTopologySuite());
+            base.OnConfiguring(optionsBuilder);
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -69,8 +67,8 @@ namespace RoomateApp.Entities
                 entity.Property(e => e.Neighborhood).HasMaxLength(50);
 
                 entity.Property(e => e.RoomsCount).HasColumnName("Rooms_Count");
-                
-                entity.Property(e => e.GeoLocation).HasColumnName("Geo_Location");
+
+                entity.Property(e => e.GeoLocation).HasColumnName("Geo_Location").HasColumnType("geography");
 
                 entity.Property(e => e.Status)
                     .HasMaxLength(20)
@@ -197,7 +195,7 @@ namespace RoomateApp.Entities
 
                 entity.Property(e => e.SocialFormatRate).HasColumnName("Social_Format_Rate");
                 
-                entity.Property(e => e.GeoLocation).HasColumnName("Geo_Location");
+                entity.Property(e => e.GeoLocation).HasColumnName("Geo_Location").HasColumnType("geography");
 
                 entity.Property(e => e.UserId).HasColumnName("User_Id");
 

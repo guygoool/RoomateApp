@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RoomateApp.Entities;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -25,5 +26,23 @@ namespace RoomateApp.Models
         public byte PetFriendlyRate { get; set; }
         [Required]
         public byte AgePreferenceRate { get; set; }
+    }
+
+    public static class ApartmentPrefExtensions
+    {
+        public static ApartmentPrefViewModel ToViewModel(this ApartmentPreferences pref)
+        {
+            return pref == null ? null : new ApartmentPrefViewModel
+            {
+                AgePreferenceRate = pref.AgePreferenceRate,
+                CleanRate = pref.CleanRate,
+                FoodIssuesRate = pref.FoodIssuesRate,
+                KosherKitchenRate = pref.KosherKitchenRate,
+                PetFriendlyRate = pref.PetFriendlyRate,
+                ReligiousRate = pref.ReligiousRate,
+                SmokeRate = pref.SmokeRate,
+                SocialFormatRate = pref.SocialFormatRate
+            };
+        }
     }
 }

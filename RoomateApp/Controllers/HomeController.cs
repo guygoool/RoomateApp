@@ -9,6 +9,7 @@ using RoomateApp.Models;
 
 namespace RoomateApp.Controllers
 {
+    [Route("[controller]")]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
@@ -18,6 +19,7 @@ namespace RoomateApp.Controllers
             _logger = logger;
         }
 
+        [HttpGet]
         public IActionResult Index()
         {
             return View();

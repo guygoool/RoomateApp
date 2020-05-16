@@ -10,6 +10,7 @@ using RoomateApp.Models;
 
 namespace RoomateApp.Controllers
 {
+    [Route("[controller]")]
     public class AccountController : Controller
     {
         private readonly ILogger<AccountController> _logger;
@@ -21,6 +22,7 @@ namespace RoomateApp.Controllers
             _logger = logger;
         }
 
+        [HttpGet]
         public IActionResult Index()
         {
             var user = _dbContext.Users.FirstOrDefault();
@@ -53,68 +55,6 @@ namespace RoomateApp.Controllers
             catch (Exception ex)
             {
                 _logger.LogError("submit sign in failed", ex);
-            }
-
-            return View(request);
-        }
-
-        public IActionResult UserPreferences(int id)
-        {
-            var userPref = _dbContext.UserPreferences.FirstOrDefault(up => up.UserId == id);
-            
-            return View(userPref.ToViewModel());
-        }
-
-        [HttpPost]
-        public ActionResult UserPreferences(UserPreferencesViewModel request)
-        {
-            try
-            {
-                if (ModelState.IsValid)
-                {
-                    var existingUserPref = _dbContext.UserPreferences.FirstOrDefault(up => up.UserId == request.UserId);
-                    if (existingUserPref != null)
-                    {
-                        existingUserPref.AgePreferenceRate = request.AgePreferenceRate;
-                        existingUserPref.CleanRate = request.CleanRate;
-                        existingUserPref.FoodIssuesRate = request.FoodIssuesRate;
-                        existingUserPref.KosherKitchenRate = request.KosherKitchenRate;
-                        existingUserPref.MaxPriceRange = request.MaxPriceRange;
-                        existingUserPref.MinPriceRange = request.MinPriceRange;
-                        existingUserPref.PetFriendlyRate = request.PetFriendlyRate;
-                        existingUserPref.ReligiousRate = request.ReligiousRate;
-                        existingUserPref.SmokeRate = request.SmokeRate;
-                        existingUserPref.SocialFormatRate = request.SocialFormatRate;
-                        existingUserPref.GeoLocation = new Point(request.Longitude, request.Latitude) { SRID = 4326 };
-
-                        _dbContext.UserPreferences.Update(existingUserPref);
-                    }
-                    else
-                    {
-                        _dbContext.UserPreferences.Add(new UserPreferences
-                        {
-                            AgePreferenceRate = request.AgePreferenceRate,
-                            CleanRate = request.CleanRate,
-                            FoodIssuesRate = request.FoodIssuesRate,
-                            KosherKitchenRate = request.KosherKitchenRate,
-                            MaxPriceRange = request.MaxPriceRange,
-                            MinPriceRange = request.MinPriceRange,
-                            PetFriendlyRate = request.PetFriendlyRate,
-                            ReligiousRate = request.ReligiousRate,
-                            SmokeRate = request.SmokeRate,
-                            SocialFormatRate = request.SocialFormatRate,
-                            UserId = request.UserId
-                        });
-                    }
-
-                    _dbContext.SaveChanges();
-
-                    return RedirectToAction("Index", "Home");
-                }
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError("submit UserPreferences failed", ex);
             }
 
             return View(request);
