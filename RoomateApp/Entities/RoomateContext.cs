@@ -25,7 +25,7 @@ namespace RoomateApp.Entities
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Server=GUY-PC\\DEVEXPRESS;Database=sapishush;Trusted_Connection=True;");
+                optionsBuilder.UseSqlServer("Server=GUY-PC\\DEVEXPRESS;Database=sapishush;Trusted_Connection=True;", x => x.UseNetTopologySuite());
             }
         }
 
@@ -44,7 +44,7 @@ namespace RoomateApp.Entities
                     .IsRequired()
                     .HasMaxLength(50);
 
-                entity.Property(e => e.Cretead).HasDefaultValueSql("(getdate())");
+                entity.Property(e => e.Created).HasDefaultValueSql("(getdate())");
 
                 entity.Property(e => e.HasLift)
                     .HasColumnName("Has_Lift")
@@ -69,6 +69,8 @@ namespace RoomateApp.Entities
                 entity.Property(e => e.Neighborhood).HasMaxLength(50);
 
                 entity.Property(e => e.RoomsCount).HasColumnName("Rooms_Count");
+                
+                entity.Property(e => e.GeoLocation).HasColumnName("Geo_Location");
 
                 entity.Property(e => e.Status)
                     .HasMaxLength(20)
@@ -99,7 +101,7 @@ namespace RoomateApp.Entities
 
                 entity.Property(e => e.CleanRate).HasColumnName("Clean_Rate");
 
-                entity.Property(e => e.Cretead).HasDefaultValueSql("(getdate())");
+                entity.Property(e => e.Created).HasDefaultValueSql("(getdate())");
 
                 entity.Property(e => e.FoodIssuesRate).HasColumnName("Food_Issues_Rate");
 
@@ -128,7 +130,7 @@ namespace RoomateApp.Entities
 
                 entity.Property(e => e.ApartmentId).HasColumnName("Apartment_Id");
 
-                entity.Property(e => e.Cretead).HasDefaultValueSql("(getdate())");
+                entity.Property(e => e.Created).HasDefaultValueSql("(getdate())");
 
                 entity.Property(e => e.Modified).HasDefaultValueSql("(getdate())");
 
@@ -171,7 +173,7 @@ namespace RoomateApp.Entities
 
                 entity.Property(e => e.CleanRate).HasColumnName("Clean_Rate");
 
-                entity.Property(e => e.Cretead).HasDefaultValueSql("(getdate())");
+                entity.Property(e => e.Created).HasDefaultValueSql("(getdate())");
 
                 entity.Property(e => e.FoodIssuesRate).HasColumnName("Food_Issues_Rate");
 
@@ -194,6 +196,8 @@ namespace RoomateApp.Entities
                 entity.Property(e => e.SmokeRate).HasColumnName("Smoke_Rate");
 
                 entity.Property(e => e.SocialFormatRate).HasColumnName("Social_Format_Rate");
+                
+                entity.Property(e => e.GeoLocation).HasColumnName("Geo_Location");
 
                 entity.Property(e => e.UserId).HasColumnName("User_Id");
 
@@ -206,7 +210,7 @@ namespace RoomateApp.Entities
 
             modelBuilder.Entity<Users>(entity =>
             {
-                entity.Property(e => e.Cretead).HasDefaultValueSql("(getdate())");
+                entity.Property(e => e.Created).HasDefaultValueSql("(getdate())");
 
                 entity.Property(e => e.Email)
                     .IsRequired()

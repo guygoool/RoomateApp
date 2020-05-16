@@ -12,7 +12,7 @@ namespace RoomateApp.Entities
         }
 
         public int Id { get; set; }
-        public DateTime Cretead { get; set; }
+        public DateTime Created { get; set; }
         public DateTime Modified { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }

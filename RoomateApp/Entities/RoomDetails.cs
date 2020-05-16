@@ -6,7 +6,7 @@ namespace RoomateApp.Entities
     public partial class RoomDetails
     {
         public int Id { get; set; }
-        public DateTime Cretead { get; set; }
+        public DateTime Created { get; set; }
         public DateTime Modified { get; set; }
         public int ApartmentId { get; set; }
         public string Status { get; set; }

@@ -15,6 +15,7 @@ namespace RoomateApp.Models
         [Required]
         public Gender Gender { get; set; }
         [Required]
+        [EmailAddress]
         public string Email { get; set; }
         [Required]
         public string PhoneNumber { get; set; }

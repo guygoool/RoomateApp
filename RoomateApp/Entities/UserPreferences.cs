@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NetTopologySuite.Geometries;
+using System;
 using System.Collections.Generic;
 
 namespace RoomateApp.Entities
@@ -6,7 +7,7 @@ namespace RoomateApp.Entities
     public partial class UserPreferences
     {
         public int Id { get; set; }
-        public DateTime Cretead { get; set; }
+        public DateTime Created { get; set; }
         public DateTime Modified { get; set; }
         public int UserId { get; set; }
         public byte SmokeRate { get; set; }
@@ -19,6 +20,8 @@ namespace RoomateApp.Entities
         public byte AgePreferenceRate { get; set; }
         public decimal? MinPriceRange { get; set; }
         public decimal? MaxPriceRange { get; set; }
+        public Point GeoLocation { get; set; }
+
 
         public virtual Users User { get; set; }
     }
