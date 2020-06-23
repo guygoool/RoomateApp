@@ -29,6 +29,8 @@ namespace RoomateApp.Entities
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<SP_FindMatch>().HasNoKey();
+
             modelBuilder.Entity<Apartment>(entity =>
             {
                 entity.Property(e => e.AdditionalComments)
@@ -208,6 +210,10 @@ namespace RoomateApp.Entities
 
             modelBuilder.Entity<Users>(entity =>
             {
+                entity.Property(e => e.UserLogin)
+                    .IsRequired()
+                    .HasColumnName("User_Login");
+
                 entity.Property(e => e.Created).HasDefaultValueSql("(getdate())");
 
                 entity.Property(e => e.Email)

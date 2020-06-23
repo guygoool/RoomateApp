@@ -13,18 +13,25 @@ namespace RoomateApp.Models
         [Range(1, 4, ErrorMessage = "{0} has to be between {1} and {2} characters.")]
         public byte SmokeRate { get; set; }
         [Required]
+        [Range(1, 4, ErrorMessage = "{0} has to be between {1} and {2} characters.")]
         public byte ReligiousRate { get; set; }
         [Required]
+        [Range(1, 4, ErrorMessage = "{0} has to be between {1} and {2} characters.")]
         public byte CleanRate { get; set; }
         [Required]
+        [Range(1, 4, ErrorMessage = "{0} has to be between {1} and {2} characters.")]
         public byte FoodIssuesRate { get; set; }
         [Required]
+        [Range(1, 4, ErrorMessage = "{0} has to be between {1} and {2} characters.")]
         public byte SocialFormatRate { get; set; }
         [Required]
+        [Range(1, 4, ErrorMessage = "{0} has to be between {1} and {2} characters.")]
         public byte KosherKitchenRate { get; set; }
         [Required]
+        [Range(1, 4, ErrorMessage = "{0} has to be between {1} and {2} characters.")]
         public byte PetFriendlyRate { get; set; }
         [Required]
+        [Range(1, 4, ErrorMessage = "{0} has to be between {1} and {2} characters.")]
         public byte AgePreferenceRate { get; set; }
     }
 

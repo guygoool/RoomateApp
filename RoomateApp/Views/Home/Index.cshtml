@@ -1,27 +1,66 @@
-﻿@{
+﻿@model RoomateApp.Models.UserViewModel
+@{
     ViewData["Title"] = "Home Page";
 }
 <style>
-    .findApt {
-        background-color: #C8E0E8;
+    .primaryButton {
+        background-color: #7454a5;
+        display: flex;
+        flex-direction: row;
+        width: 15em;
+        height: 4em;
+        border: solid 0.3em #834898;
+        border-radius: 1em;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        font-size: 1.5em;
+        font-weight: 700;
+    }
+
+    .secondaryButton {
+        background-color: #fbce47;
+        display: flex;
+        flex-direction: row;
+        width: 12em;
+        height: 3.5em;
+        border: solid 0.3em #f1be27;
+        border-radius: 0.8em;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        font-size: 1.3em;
+        font-weight: 700;
+    }
+
+    .buttonGroup {
         display: flex;
         flex-direction: column;
-        width: 10em;
-        height: 10em;
-        border: solid 5px;
+        align-items: center;
+        justify-content: space-evenly;
+        height: 50vh;
     }
 </style>
 
-<h1>Home page</h1>
-
-<a href="@Url.Action("Index", "Apartment")">
-    <div class="findApt">
-        Publish apartment
-    </div>
-</a>
-
-<a href="@Url.Action("Index", "Home")">
-    <div class="findApt">
-        Search apartment
-    </div>
-</a>
+@{
+    if (Model != null && Model.Id > 0)
+    {
+        <h1>@Html.Raw($"Hi {Model.FirstName} {Model.LastName}")</h1>
+        <div class="buttonGroup">
+            <a href="@Url.Action("Index", "UserPref", new { userId = Model.Id })">
+                <div class="primaryButton">
+                    Find Apartments
+                </div>
+            </a>
+            <a href="@Url.Action("Index", "Apartment", new { userId = Model.Id })">
+                <div class="secondaryButton">
+                    Publish apartment
+                </div>
+            </a>
+        </div>
+    }
+    else
+    {
+        <a href="@Url.Action("Index", "Account")">Sign in</a>
+    }
+}

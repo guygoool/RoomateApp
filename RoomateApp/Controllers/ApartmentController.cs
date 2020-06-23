@@ -24,29 +24,23 @@ namespace RoomateApp.Controllers
             _logger = logger;
         }
 
-        [HttpGet]
-        //[Route("{id:int}")]
-        public IActionResult Index(int id)
+        [HttpGet("{userId}")]
+        public IActionResult Index(int userId)
         {
-            var apartment = _dbContext.Apartment
-                .Include(c => c.ApartmentPreferences)
-                .Include(c => c.RoomDetails)
-                .FirstOrDefault(a => a.Id == id);
-
-            return View(apartment.ToViewModel());
+            return View(new ApartmentViewModel() { UserId = userId });
         }
 
-        [HttpPost]
-        public async Task<ActionResult> Index(ApartmentViewModel request)
+        [HttpPost("{userId}")]
+        public async Task<ActionResult> Index(ApartmentViewModel request, int userId)
         {
             try
             {
                 if (ModelState.IsValid)
                 {
-                    var existingApartment = await _dbContext.Apartment.FirstOrDefaultAsync(c => c.Id == request.Id);
-                    if (existingApartment != null)
+                    var apartment = await _dbContext.Apartment.FirstOrDefaultAsync(c => c.Id == request.Id);
+                    if (apartment != null)
                     {
-                        var roomDetails = existingApartment.RoomDetails.FirstOrDefault();
+                        var roomDetails = apartment.RoomDetails.FirstOrDefault();
                         if (roomDetails != null)
                         {
                             roomDetails.PrivateBalcony = request.RoomDetails.IsPrivateBalcony;
@@ -58,9 +52,9 @@ namespace RoomateApp.Controllers
                         }
                         else
                         {
-                            existingApartment.RoomDetails.Add(new RoomDetails
+                            apartment.RoomDetails.Add(new RoomDetails
                             {
-                                ApartmentId = existingApartment.Id,
+                                ApartmentId = apartment.Id,
                                 PrivateBalcony = request.RoomDetails.IsPrivateBalcony,
                                 PrivateShower = request.RoomDetails.IsPrivateShower,
                                 PrivateToilet = request.RoomDetails.IsPrivateToilet,
@@ -71,7 +65,7 @@ namespace RoomateApp.Controllers
                             });
                         }
 
-                        var preferences = existingApartment.ApartmentPreferences;
+                        var preferences = apartment.ApartmentPreferences;
                         if (preferences != null)
                         {
                             preferences.AgePreferenceRate = request.Preferences.AgePreferenceRate;
@@ -85,7 +79,7 @@ namespace RoomateApp.Controllers
                         }
                         else
                         {
-                            existingApartment.ApartmentPreferences = new ApartmentPreferences
+                            apartment.ApartmentPreferences = new ApartmentPreferences
                             {
                                 AgePreferenceRate = request.Preferences.AgePreferenceRate,
                                 CleanRate = request.Preferences.CleanRate,
@@ -98,21 +92,21 @@ namespace RoomateApp.Controllers
                             };
                         }
 
-                        existingApartment.UserId = request.UserId;
-                        existingApartment.AdditionalComments = request.AdditionalComments;
-                        existingApartment.ApartmentPreferences = preferences;
-                        existingApartment.AvailableRooms = request.AvailableRoomsCount;
-                        existingApartment.Floor = request.Floor;
-                        existingApartment.HasLift = request.HasLift;
-                        existingApartment.HasLivingroom = request.HasLivingroom;
-                        existingApartment.HasParking = request.HasParking;
-                        existingApartment.HouseholdPrice = request.HouseholdPrice;
-                        existingApartment.LeaseStartDate = request.LeaseStartDate;
-                        existingApartment.RoomDetails = new List<RoomDetails> { roomDetails };
-                        existingApartment.RoomsCount = request.RoomsCount;
-                        existingApartment.Status = "Available";
-                        existingApartment.TaxPrice = request.TaxPrice;
-                        existingApartment.GeoLocation = new Point(request.Longitude, request.Latitude) { SRID = 4326 };
+                        apartment.UserId = request.UserId;
+                        apartment.AdditionalComments = request.AdditionalComments;
+                        apartment.ApartmentPreferences = preferences;
+                        apartment.AvailableRooms = request.AvailableRoomsCount;
+                        apartment.Floor = request.Floor;
+                        apartment.HasLift = request.HasLift;
+                        apartment.HasLivingroom = request.HasLivingroom;
+                        apartment.HasParking = request.HasParking;
+                        apartment.HouseholdPrice = request.HouseholdPrice;
+                        apartment.LeaseStartDate = request.LeaseStartDate;
+                        apartment.RoomDetails = new List<RoomDetails> { roomDetails };
+                        apartment.RoomsCount = request.RoomsCount;
+                        apartment.Status = "Available";
+                        apartment.TaxPrice = request.TaxPrice;
+                        apartment.GeoLocation = new Point(request.Longitude, request.Latitude) { SRID = 4326 };
                     }
                     else
                     {
@@ -139,9 +133,9 @@ namespace RoomateApp.Controllers
                             SmokeRate = request.Preferences.SmokeRate,
                             SocialFormatRate = request.Preferences.SocialFormatRate
                         };
-                        _dbContext.Apartment.Add(new Apartment
+                        apartment = _dbContext.Apartment.Add(new Apartment
                         {
-                            UserId = request.UserId,
+                            UserId = userId,
                             City = "",
                             Street = "",
                             AdditionalComments = request.AdditionalComments,
@@ -158,18 +152,18 @@ namespace RoomateApp.Controllers
                             ApartmentPreferences = preferences,
                             GeoLocation = new Point(request.Longitude, request.Latitude) { SRID = 4326 },
                             Status = "Available"
-                        });
+                        }).Entity;
                     }
 
 
                     await _dbContext.SaveChangesAsync();
 
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Index", "Home", new { UserId = userId });
                 }
             }
             catch (Exception ex)
             {
-                _logger.LogError("submit login failed", ex);
+                _logger.LogError("submit failed", ex);
             }
 
             return View(request);

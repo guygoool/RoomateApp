@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using NetTopologySuite.Geometries;
 using RoomateApp.Entities;
@@ -22,22 +23,23 @@ namespace RoomateApp.Controllers
             _logger = logger;
         }
 
-        [HttpGet]
-        public IActionResult Index(int id)
+        [HttpGet("{userId}")]
+        public IActionResult Index(int userId)
         {
-            var userPref = _dbContext.UserPreferences.FirstOrDefault(up => up.Id == id);
+            var userPref = _dbContext.UserPreferences.FirstOrDefault(up => up.UserId == userId);
             
-            return View(userPref.ToViewModel());
+            return View(userPref == null ? new UserPreferencesViewModel() : userPref.ToViewModel());
         }
 
         [HttpPost]
-        public ActionResult Index(UserPreferencesViewModel request)
+        [HttpPost("{userId}")]
+        public ActionResult Index(UserPreferencesViewModel request, int userId)
         {
             try
             {
                 if (ModelState.IsValid)
                 {
-                    var existingUserPref = _dbContext.UserPreferences.FirstOrDefault(up => up.UserId == request.UserId);
+                    var existingUserPref = _dbContext.UserPreferences.FirstOrDefault(up => up.UserId == userId);
                     if (existingUserPref != null)
                     {
                         existingUserPref.AgePreferenceRate = request.AgePreferenceRate;
@@ -68,13 +70,13 @@ namespace RoomateApp.Controllers
                             ReligiousRate = request.ReligiousRate,
                             SmokeRate = request.SmokeRate,
                             SocialFormatRate = request.SocialFormatRate,
-                            UserId = request.UserId
+                            UserId = userId
                         });
                     }
 
                     _dbContext.SaveChanges();
 
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Index", "Match", new { UserId = userId });
                 }
             }
             catch (Exception ex)

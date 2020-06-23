@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RoomateApp.Entities;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -14,6 +15,8 @@ namespace RoomateApp.Models
         [Required]
         public string LastName { get; set; }
         [Required]
+        public string UserLogin { get; set; }
+        [Required]
         public Gender Gender { get; set; }
         [Required]
         [EmailAddress]
@@ -28,5 +31,24 @@ namespace RoomateApp.Models
     {
         Male = 1,
         Female = 2
+    }
+
+    public static class UserExtensions
+    {
+        public static UserViewModel ToViewModel(this Users user)
+        {
+            Enum.TryParse(user.Gender, out Gender gender);
+            return new UserViewModel
+            {
+                Id = user.Id,
+                Email = user.Email,
+                FirstName = user.FirstName,
+                LastName = user.LastName,
+                Gender = gender,
+                Password = user.Password,
+                PhoneNumber = user.PhoneNumber,
+                UserLogin = user.UserLogin
+            };
+        }
     }
 }

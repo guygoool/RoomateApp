@@ -1,0 +1,70 @@
+﻿@model RoomateApp.Models.MatchViewModel
+@{
+    ViewData["Title"] = "index";
+}
+
+<table id="matches">
+    <thead>
+        <tr>
+            <th>Apartment id</th>
+            <th>Smoke Rating</th>
+            <th>Religious Rating</th>
+            <th>Clean Rating</th>
+            <th>Food Issues Rating</th>
+            <th>Social Format Rating</th>
+            <th>Kosher Kitchen Rating</th>
+            <th>Pet Friendly Rating</th>
+            <th>Age Rating</th>
+            <th>Distance Rating</th>
+            <th>Price Rating</th>
+            <th>Total Rating</th>
+        </tr>
+    </thead>
+    @foreach (var match in Model.Matches.OrderByDescending(c => c.TotalRating))
+    {
+        <tr>
+            <td>@match.ApartmentId</td>
+            <td style="background-color: @( match.SmokeRating < 4 ? "#fc5353" : match.SmokeRating > 5 ? "#01e200" : "#ffff55" )">@match.SmokeRating</td>
+            <td style="background-color: @( match.ReligiousRating < 4 ? "#fc5353" : match.SmokeRating > 5 ? "#01e200" : "#ffff55" )">@match.ReligiousRating</td>
+            <td style="background-color: @( match.CleanRating < 4 ? "#fc5353" : match.SmokeRating > 5 ? "#01e200" : "#ffff55" )">@match.CleanRating</td>
+            <td style="background-color: @( match.FoodIssuesRating < 4 ? "#fc5353" : match.SmokeRating > 5 ? "#01e200" : "#ffff55" )">@match.FoodIssuesRating</td>
+            <td style="background-color: @( match.SocialFormatRating < 4 ? "#fc5353" : match.SmokeRating > 5 ? "#01e200" : "#ffff55" )">@match.SocialFormatRating</td>
+            <td style="background-color: @( match.KosherKitchenRating < 4 ? "#fc5353" : match.SmokeRating > 5 ? "#01e200" : "#ffff55" )">@match.KosherKitchenRating</td>
+            <td style="background-color: @( match.PetFriendlyRating < 4 ? "#fc5353" : match.SmokeRating > 5 ? "#01e200" : "#ffff55" )">@match.PetFriendlyRating</td>
+            <td style="background-color: @( match.AgePreferenceRating < 4 ? "#fc5353" : match.SmokeRating > 5 ? "#01e200" : "#ffff55" )">@match.AgePreferenceRating</td>
+            <td style="background-color: @( match.DistanceRating < 10 ? "#fc5353" : match.SmokeRating > 16 ? "#01e200" : "#ffff55" )">@match.DistanceRating</td>
+            <td style="background-color: @( match.PriceRating < 10 ? "#fc5353" : match.SmokeRating > 16 ? "#01e200" : "#ffff55" )">@match.PriceRating</td>
+            <td style="font-weight: 600">@Html.Raw($"{match.TotalRating}%")</td>
+        </tr>
+    }
+</table>
+
+<style type="text/css">
+    #matches {
+        font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+        text-align: center;
+    }
+
+        #matches td, #matches th {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        #matches tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        #matches tr:hover {
+            background-color: #ddd;
+        }
+
+        #matches th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: #7454a5;
+            color: white;
+        }
+</style>

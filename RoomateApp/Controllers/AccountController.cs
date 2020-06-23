@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using NetTopologySuite.Geometries;
 using RoomateApp.Entities;
@@ -25,9 +26,7 @@ namespace RoomateApp.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            var user = _dbContext.Users.FirstOrDefault();
-
-            return View();
+            return View(new UserViewModel());
         }
 
         [HttpPost]
@@ -37,19 +36,19 @@ namespace RoomateApp.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    _dbContext.Users.Add(new Users
+                    var newUser = _dbContext.Users.Add(new Users
                     {
                         FirstName = request.FirstName,
                         LastName = request.LastName,
                         Email = request.Email,
                         PhoneNumber = request.PhoneNumber,
                         Gender = request.Gender.ToString(),
-                        Password = request.Password
-                    });
-
+                        Password = request.Password,
+                        UserLogin = request.UserLogin
+                    }).Entity;
                     _dbContext.SaveChanges();
 
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Index", "Home", new { userId = newUser.Id });
                 }
             }
             catch (Exception ex)

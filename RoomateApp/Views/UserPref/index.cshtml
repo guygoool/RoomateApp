@@ -3,6 +3,21 @@
     ViewData["Title"] = "User preferecens";
 }
 <style>
+    .form-group {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .label {
+        width: 50%;
+    }
+
+    .radio-group {
+        display: flex;
+        flex-direction: row;
+        width: 50%;
+    }
+
     .prefGroup {
         display: flex;
         flex-direction: row;
@@ -15,166 +30,207 @@
 {
     <div class="form-group">
         @Html.HiddenFor(c => c.UserId)
+        @Html.Raw(Model.UserId)
         <div class="prefGroup">
-            @Html.LabelFor(model => model.AgePreferenceRate)
-            <div>
-                @Html.Label("AgePreferenceRate_0", "0")
-                @Html.RadioButton("AgePreferenceRate", "0", Model.AgePreferenceRate == 0, new { @id = "AgePreferenceRate_0" })
+            <div class="label">
+                @Html.LabelFor(model => model.AgePreferenceRate)
             </div>
-            <div>
-                @Html.Label("AgePreferenceRate_1", "1")
-                @Html.RadioButton("AgePreferenceRate", "1", Model.AgePreferenceRate == 1, new { @id = "AgePreferenceRate_1" })
-            </div>
-            <div>
-                @Html.Label("AgePreferenceRate_3", "3")
-                @Html.RadioButton("AgePreferenceRate", "3", Model.AgePreferenceRate == 3, new { @id = "AgePreferenceRate_3" })
-            </div>
-            <div>
-                @Html.Label("AgePreferenceRate_5", "5")
-                @Html.RadioButton("AgePreferenceRate", "5", Model.AgePreferenceRate == 5, new { @id = "AgePreferenceRate_5" })
+            <div class="radio-group">
+                <div>
+                    @Html.Label("AgePreferenceRate_0", "0")
+                    @Html.RadioButton("AgePreferenceRate", "0", Model.AgePreferenceRate == 0, new { @id = "AgePreferenceRate_0" })
+                </div>
+                <div>
+                    @Html.Label("AgePreferenceRate_1", "1")
+                    @Html.RadioButton("AgePreferenceRate", "1", Model.AgePreferenceRate == 1, new { @id = "AgePreferenceRate_1" })
+                </div>
+                <div>
+                    @Html.Label("AgePreferenceRate_3", "3")
+                    @Html.RadioButton("AgePreferenceRate", "3", Model.AgePreferenceRate == 3, new { @id = "AgePreferenceRate_3" })
+                </div>
+                <div>
+                    @Html.Label("AgePreferenceRate_5", "5")
+                    @Html.RadioButton("AgePreferenceRate", "5", Model.AgePreferenceRate == 5, new { @id = "AgePreferenceRate_5" })
+                </div>
             </div>
         </div>
         <div class="prefGroup">
-            @Html.LabelFor(model => model.CleanRate)
-            <div>
-                @Html.Label("CleanRate_0", "0")
-                @Html.RadioButton("CleanRate", "0", Model.CleanRate == 0, new { @id = "CleanRate_0" })
+            <div class="label">
+                @Html.LabelFor(model => model.CleanRate)
             </div>
-            <div>
-                @Html.Label("AgePreferenceRate_1", "1")
-                @Html.RadioButton("CleanRate", "1", Model.CleanRate == 1, new { @id = "CleanRate_1" })
-            </div>
-            <div>
-                @Html.Label("CleanRate_3", "3")
-                @Html.RadioButton("CleanRate", "3", Model.CleanRate == 3, new { @id = "CleanRate_3" })
-            </div>
-            <div>
-                @Html.Label("CleanRate_5", "5")
-                @Html.RadioButton("CleanRate", "5", Model.CleanRate == 5, new { @id = "CleanRate_5" })
-            </div>
-        </div>
-        <div class="prefGroup">
-            @Html.LabelFor(model => model.FoodIssuesRate)
-            <div>
-                @Html.Label("FoodIssuesRate_0", "0")
-                @Html.RadioButton("FoodIssuesRate", "0", Model.FoodIssuesRate == 0, new { @id = "FoodIssuesRate_0" })
-            </div>
-            <div>
-                @Html.Label("FoodIssuesRate_1", "1")
-                @Html.RadioButton("FoodIssuesRate", "1", Model.FoodIssuesRate == 1, new { @id = "FoodIssuesRate_1" })
-            </div>
-            <div>
-                @Html.Label("FoodIssuesRate_3", "3")
-                @Html.RadioButton("FoodIssuesRate", "3", Model.FoodIssuesRate == 3, new { @id = "FoodIssuesRate_3" })
-            </div>
-            <div>
-                @Html.Label("FoodIssuesRate_5", "5")
-                @Html.RadioButton("FoodIssuesRate", "5", Model.FoodIssuesRate == 5, new { @id = "FoodIssuesRate_5" })
+            <div class="radio-group">
+                <div>
+                    @Html.Label("CleanRate_0", "0")
+                    @Html.RadioButton("CleanRate", "0", Model.CleanRate == 0, new { @id = "CleanRate_0" })
+                </div>
+                <div>
+                    @Html.Label("AgePreferenceRate_1", "1")
+                    @Html.RadioButton("CleanRate", "1", Model.CleanRate == 1, new { @id = "CleanRate_1" })
+                </div>
+                <div>
+                    @Html.Label("CleanRate_3", "3")
+                    @Html.RadioButton("CleanRate", "3", Model.CleanRate == 3, new { @id = "CleanRate_3" })
+                </div>
+                <div>
+                    @Html.Label("CleanRate_5", "5")
+                    @Html.RadioButton("CleanRate", "5", Model.CleanRate == 5, new { @id = "CleanRate_5" })
+                </div>
             </div>
         </div>
         <div class="prefGroup">
-            @Html.LabelFor(model => model.KosherKitchenRate)
-            <div>
-                @Html.Label("KosherKitchenRate_0", "0")
-                @Html.RadioButton("KosherKitchenRate", "0", Model.KosherKitchenRate == 0, new { @id = "KosherKitchenRate_0" })
+            <div class="label">
+                @Html.LabelFor(model => model.FoodIssuesRate)
             </div>
-            <div>
-                @Html.Label("KosherKitchenRate_1", "1")
-                @Html.RadioButton("KosherKitchenRate", "1", Model.KosherKitchenRate == 1, new { @id = "KosherKitchenRate_1" })
-            </div>
-            <div>
-                @Html.Label("KosherKitchenRate_3", "3")
-                @Html.RadioButton("KosherKitchenRate", "3", Model.KosherKitchenRate == 3, new { @id = "KosherKitchenRate_3" })
-            </div>
-            <div>
-                @Html.Label("KosherKitchenRate_5", "5")
-                @Html.RadioButton("KosherKitchenRate", "5", Model.KosherKitchenRate == 5, new { @id = "KosherKitchenRate_5" })
-            </div>
-        </div>
-        <div class="prefGroup">
-            @Html.LabelFor(model => model.MaxPriceRange)
-            @Html.EditorFor(model => model.MaxPriceRange, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.MaxPriceRange, "", new { @class = "text-danger" })
-        </div>
-        <div class="prefGroup">
-            @Html.LabelFor(model => model.MinPriceRange)
-            @Html.EditorFor(model => model.MinPriceRange, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.MinPriceRange, "", new { @class = "text-danger" })
-        </div>
-        <div class="prefGroup">
-            @Html.LabelFor(model => model.PetFriendlyRate)
-            <div>
-                @Html.Label("PetFriendlyRate", "0")
-                @Html.RadioButton("PetFriendlyRate", "0", Model.PetFriendlyRate == 0, new { @id = "PetFriendlyRate" })
-            </div>
-            <div>
-                @Html.Label("PetFriendlyRate_1", "1")
-                @Html.RadioButton("PetFriendlyRate", "1", Model.PetFriendlyRate == 1, new { @id = "PetFriendlyRate_1" })
-            </div>
-            <div>
-                @Html.Label("PetFriendlyRate_3", "3")
-                @Html.RadioButton("PetFriendlyRate", "3", Model.PetFriendlyRate == 3, new { @id = "PetFriendlyRate_3" })
-            </div>
-            <div>
-                @Html.Label("PetFriendlyRate_5", "5")
-                @Html.RadioButton("PetFriendlyRate", "5", Model.PetFriendlyRate == 5, new { @id = "PetFriendlyRate_5" })
+            <div class="radio-group">
+                <div>
+                    @Html.Label("FoodIssuesRate_0", "0")
+                    @Html.RadioButton("FoodIssuesRate", "0", Model.FoodIssuesRate == 0, new { @id = "FoodIssuesRate_0" })
+                </div>
+                <div>
+                    @Html.Label("FoodIssuesRate_1", "1")
+                    @Html.RadioButton("FoodIssuesRate", "1", Model.FoodIssuesRate == 1, new { @id = "FoodIssuesRate_1" })
+                </div>
+                <div>
+                    @Html.Label("FoodIssuesRate_3", "3")
+                    @Html.RadioButton("FoodIssuesRate", "3", Model.FoodIssuesRate == 3, new { @id = "FoodIssuesRate_3" })
+                </div>
+                <div>
+                    @Html.Label("FoodIssuesRate_5", "5")
+                    @Html.RadioButton("FoodIssuesRate", "5", Model.FoodIssuesRate == 5, new { @id = "FoodIssuesRate_5" })
+                </div>
             </div>
         </div>
         <div class="prefGroup">
-            @Html.LabelFor(model => model.ReligiousRate)
-            <div>
-                @Html.Label("ReligiousRate", "0")
-                @Html.RadioButton("ReligiousRate", "0", Model.ReligiousRate == 0, new { @id = "ReligiousRate" })
+            <div class="label">
+                @Html.LabelFor(model => model.KosherKitchenRate)
             </div>
-            <div>
-                @Html.Label("ReligiousRate_1", "1")
-                @Html.RadioButton("ReligiousRate", "1", Model.ReligiousRate == 1, new { @id = "ReligiousRate_1" })
-            </div>
-            <div>
-                @Html.Label("ReligiousRate_3", "3")
-                @Html.RadioButton("ReligiousRate", "3", Model.ReligiousRate == 3, new { @id = "ReligiousRate_3" })
-            </div>
-            <div>
-                @Html.Label("ReligiousRate_5", "5")
-                @Html.RadioButton("ReligiousRate", "5", Model.ReligiousRate == 5, new { @id = "ReligiousRate_5" })
-            </div>
-        </div>
-        <div class="prefGroup">
-            @Html.LabelFor(model => model.SmokeRate)
-            <div>
-                @Html.Label("SmokeRate", "0")
-                @Html.RadioButton("SmokeRate", "0", Model.SmokeRate == 0, new { @id = "SmokeRate" })
-            </div>
-            <div>
-                @Html.Label("SmokeRate_1", "1")
-                @Html.RadioButton("SmokeRate", "1", Model.SmokeRate == 1, new { @id = "SmokeRate_1" })
-            </div>
-            <div>
-                @Html.Label("SmokeRate_3", "3")
-                @Html.RadioButton("SmokeRate", "3", Model.SmokeRate == 3, new { @id = "SmokeRate_3" })
-            </div>
-            <div>
-                @Html.Label("SmokeRate_5", "5")
-                @Html.RadioButton("SmokeRate", "5", Model.SmokeRate == 5, new { @id = "SmokeRate_5" })
+            <div class="radio-group">
+                <div>
+                    @Html.Label("KosherKitchenRate_0", "0")
+                    @Html.RadioButton("KosherKitchenRate", "0", Model.KosherKitchenRate == 0, new { @id = "KosherKitchenRate_0" })
+                </div>
+                <div>
+                    @Html.Label("KosherKitchenRate_1", "1")
+                    @Html.RadioButton("KosherKitchenRate", "1", Model.KosherKitchenRate == 1, new { @id = "KosherKitchenRate_1" })
+                </div>
+                <div>
+                    @Html.Label("KosherKitchenRate_3", "3")
+                    @Html.RadioButton("KosherKitchenRate", "3", Model.KosherKitchenRate == 3, new { @id = "KosherKitchenRate_3" })
+                </div>
+                <div>
+                    @Html.Label("KosherKitchenRate_5", "5")
+                    @Html.RadioButton("KosherKitchenRate", "5", Model.KosherKitchenRate == 5, new { @id = "KosherKitchenRate_5" })
+                </div>
             </div>
         </div>
         <div class="prefGroup">
-            @Html.LabelFor(model => model.SocialFormatRate)
-            <div>
-                @Html.Label("SocialFormatRate", "0")
-                @Html.RadioButton("SocialFormatRate", "0", Model.SocialFormatRate == 0, new { @id = "SocialFormatRate_0" })
+            <div class="label">
+                @Html.LabelFor(model => model.MaxPriceRange)
             </div>
             <div>
-                @Html.Label("SocialFormatRate_1", "1")
-                @Html.RadioButton("SocialFormatRate", "1", Model.SocialFormatRate == 1, new { @id = "SocialFormatRate_1" })
+                @Html.EditorFor(model => model.MaxPriceRange, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.MaxPriceRange, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="prefGroup">
+            <div class="label">
+                @Html.LabelFor(model => model.MinPriceRange)
             </div>
             <div>
-                @Html.Label("SocialFormatRate_3", "3")
-                @Html.RadioButton("SocialFormatRate", "3", Model.SocialFormatRate == 3, new { @id = "SocialFormatRate_3" })
+                @Html.EditorFor(model => model.MinPriceRange, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.MinPriceRange, "", new { @class = "text-danger" })
             </div>
-            <div>
-                @Html.Label("SocialFormatRate_5", "5")
-                @Html.RadioButton("SocialFormatRate", "5", Model.SocialFormatRate == 5, new { @id = "SocialFormatRate_5" })
+        </div>
+        <div class="prefGroup">
+            <div class="label">
+                @Html.LabelFor(model => model.PetFriendlyRate)
+            </div>
+            <div class="radio-group">
+                <div>
+                    @Html.Label("PetFriendlyRate", "0")
+                    @Html.RadioButton("PetFriendlyRate", "0", Model.PetFriendlyRate == 0, new { @id = "PetFriendlyRate" })
+                </div>
+                <div>
+                    @Html.Label("PetFriendlyRate_1", "1")
+                    @Html.RadioButton("PetFriendlyRate", "1", Model.PetFriendlyRate == 1, new { @id = "PetFriendlyRate_1" })
+                </div>
+                <div>
+                    @Html.Label("PetFriendlyRate_3", "3")
+                    @Html.RadioButton("PetFriendlyRate", "3", Model.PetFriendlyRate == 3, new { @id = "PetFriendlyRate_3" })
+                </div>
+                <div>
+                    @Html.Label("PetFriendlyRate_5", "5")
+                    @Html.RadioButton("PetFriendlyRate", "5", Model.PetFriendlyRate == 5, new { @id = "PetFriendlyRate_5" })
+                </div>
+            </div>
+        </div>
+        <div class="prefGroup">
+            <div class="label">
+                @Html.LabelFor(model => model.ReligiousRate)
+            </div>
+            <div class="radio-group">
+                <div>
+                    @Html.Label("ReligiousRate", "0")
+                    @Html.RadioButton("ReligiousRate", "0", Model.ReligiousRate == 0, new { @id = "ReligiousRate" })
+                </div>
+                <div>
+                    @Html.Label("ReligiousRate_1", "1")
+                    @Html.RadioButton("ReligiousRate", "1", Model.ReligiousRate == 1, new { @id = "ReligiousRate_1" })
+                </div>
+                <div>
+                    @Html.Label("ReligiousRate_3", "3")
+                    @Html.RadioButton("ReligiousRate", "3", Model.ReligiousRate == 3, new { @id = "ReligiousRate_3" })
+                </div>
+                <div>
+                    @Html.Label("ReligiousRate_5", "5")
+                    @Html.RadioButton("ReligiousRate", "5", Model.ReligiousRate == 5, new { @id = "ReligiousRate_5" })
+                </div>
+            </div>
+        </div>
+        <div class="prefGroup">
+            <div class="label">
+                @Html.LabelFor(model => model.SmokeRate)
+            </div>
+            <div class="radio-group">
+                <div>
+                    @Html.Label("SmokeRate", "0")
+                    @Html.RadioButton("SmokeRate", "0", Model.SmokeRate == 0, new { @id = "SmokeRate" })
+                </div>
+                <div>
+                    @Html.Label("SmokeRate_1", "1")
+                    @Html.RadioButton("SmokeRate", "1", Model.SmokeRate == 1, new { @id = "SmokeRate_1" })
+                </div>
+                <div>
+                    @Html.Label("SmokeRate_3", "3")
+                    @Html.RadioButton("SmokeRate", "3", Model.SmokeRate == 3, new { @id = "SmokeRate_3" })
+                </div>
+                <div>
+                    @Html.Label("SmokeRate_5", "5")
+                    @Html.RadioButton("SmokeRate", "5", Model.SmokeRate == 5, new { @id = "SmokeRate_5" })
+                </div>
+            </div>
+        </div>
+        <div class="prefGroup">
+            <div class="label">
+                @Html.LabelFor(model => model.SocialFormatRate)
+            </div>
+            <div class="radio-group">
+                <div>
+                    @Html.Label("SocialFormatRate", "0")
+                    @Html.RadioButton("SocialFormatRate", "0", Model.SocialFormatRate == 0, new { @id = "SocialFormatRate_0" })
+                </div>
+                <div>
+                    @Html.Label("SocialFormatRate_1", "1")
+                    @Html.RadioButton("SocialFormatRate", "1", Model.SocialFormatRate == 1, new { @id = "SocialFormatRate_1" })
+                </div>
+                <div>
+                    @Html.Label("SocialFormatRate_3", "3")
+                    @Html.RadioButton("SocialFormatRate", "3", Model.SocialFormatRate == 3, new { @id = "SocialFormatRate_3" })
+                </div>
+                <div>
+                    @Html.Label("SocialFormatRate_5", "5")
+                    @Html.RadioButton("SocialFormatRate", "5", Model.SocialFormatRate == 5, new { @id = "SocialFormatRate_5" })
+                </div>
             </div>
         </div>
     </div>
@@ -223,7 +279,7 @@
 
     <div class="form-group">
         <div>
-            <input type="submit" value="Save" />
+            <input type="submit" value="Next" />
         </div>
     </div>
 

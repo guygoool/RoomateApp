@@ -12,7 +12,7 @@
 </style>
 
 <h1>Sign in</h1>
-@using (Html.BeginForm())
+@using (Html.BeginForm(null, null, FormMethod.Post, new { id = "form" }))
 {
     <div class="form-group">
         @Html.HiddenFor(c => c.Id)
@@ -21,15 +21,16 @@
             @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control" } })
             @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
         </div>
-    </div>
-    <div class="form-group">
         @Html.LabelFor(model => model.LastName)
         <div>
             @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control" } })
             @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
         </div>
-    </div>
-    <div class="form-group">
+        @Html.LabelFor(model => model.UserLogin)
+        <div>
+            @Html.EditorFor(model => model.UserLogin, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.UserLogin, "", new { @class = "text-danger" })
+        </div>
         @Html.LabelFor(model => model.Gender)
         <div>
             @Html.DropDownListFor(model => model.Gender, new SelectList(Enum.GetValues(typeof(Gender))),
@@ -37,30 +38,22 @@
                     new { @class = "form-control" })
             @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })
         </div>
-    </div>
-    <div class="form-group">
         @Html.LabelFor(model => model.Email)
         <div>
             @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
             @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
         </div>
-    </div>
-    <div class="form-group">
         @Html.LabelFor(model => model.PhoneNumber)
         <div>
             @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { @class = "form-control" } })
             @Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "text-danger" })
         </div>
-    </div>
-    <div class="form-group">
         @Html.LabelFor(model => model.Password)
         <div>
             @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
             @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
         </div>
-    </div>
 
-    <div class="form-group">
         <div>
             <input type="submit" value="Save" />
         </div>
