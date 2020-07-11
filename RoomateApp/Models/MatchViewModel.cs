@@ -1,6 +1,7 @@
 ﻿using RoomateApp.Entities;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -14,6 +15,8 @@ namespace RoomateApp.Models
     public class MatchResultViewModel
     {
         public int ApartmentId { get; set; }
+        public string ApartmentOwnerFullName { get; set; }
+        public string ApartmentOwnerPhoneNumber { get; set; }
         public decimal TotalRating { get; set; }
         public decimal SmokeRating { get; set; }
         public decimal ReligiousRating { get; set; }
@@ -34,6 +37,8 @@ namespace RoomateApp.Models
             return match == null ? null : new MatchResultViewModel
             {
                 ApartmentId = match.ApartmentId,
+                ApartmentOwnerFullName = $"{match.OwnerFirstName} {match.OwnerLastName}",
+                ApartmentOwnerPhoneNumber = match.OwnerPhoneNumber,
                 TotalRating = match.TotalRating,
                 AgePreferenceRating = match.AgePreferenceRating,
                 CleanRating = match.CleanRating,

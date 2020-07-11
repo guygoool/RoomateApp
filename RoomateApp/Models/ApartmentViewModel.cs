@@ -16,22 +16,32 @@ namespace RoomateApp.Models
         public string Street { get; set; }
         public string HouseNumber { get; set; }
         [Required]
+        [Display(Name = "קומה")]
         public byte Floor { get; set; }
         [Required]
         [Display(Name = "תאריך תחילת חוזה")]
         [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime LeaseStartDate { get; set; }
+        [Display(Name = "מעלית")]
         public bool HasLift { get; set; }
+        [Display(Name = "חניה")]
         public bool HasParking { get; set; }
         [Required]
+        [Display(Name = "מס' חדרים")]
         public byte RoomsCount { get; set; }
         [Required]
+        [Display(Name = "מס' חדרים פנויים")]
         public byte AvailableRoomsCount { get; set; }
+        [Display(Name = "סלון")]
         public bool HasLivingroom { get; set; }
+        [Display(Name = "ועד הבית")]
         public int HouseholdPrice { get; set; }
+        [Display(Name = "ארנונה")]
         public int TaxPrice { get; set; }
+        [Display(Name = "הערות נוספות")]
         public string AdditionalComments { get; set; }
+        [Display(Name = "ארנונה")]
         public double Latitude { get; set; }
         public double Longitude { get; set; }
 

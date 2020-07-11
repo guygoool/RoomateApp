@@ -25,8 +25,7 @@ namespace RoomateApp
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<RoomateContext>(options =>
-                options.UseSqlServer("Server=GUY-PC\\DEVEXPRESS;Database=sapishush;Trusted_Connection=True;"));
+            services.AddDbContext<RoomateContext>();
 
             services.AddControllersWithViews();
         }

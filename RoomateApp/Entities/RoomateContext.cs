@@ -23,7 +23,8 @@ namespace RoomateApp.Entities
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server=GUY-PC\\DEVEXPRESS;Database=sapishush;Trusted_Connection=True;", sqlOptions => sqlOptions.UseNetTopologySuite());
+            optionsBuilder.UseSqlServer("Server=tcp:roomateapp-prod.database.windows.net,1433;Initial Catalog=Roomate;User ID=sapir;Password=Blabla14;MultipleActiveResultSets=True;", 
+                sqlOptions => sqlOptions.UseNetTopologySuite());
             base.OnConfiguring(optionsBuilder);
         }
 

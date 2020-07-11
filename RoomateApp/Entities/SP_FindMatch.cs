@@ -8,6 +8,9 @@ namespace RoomateApp.Entities
     public class SP_FindMatch
     {
         public int ApartmentId { get; set; }
+        public string OwnerFirstName { get; set; }
+        public string OwnerLastName { get; set; }
+        public string OwnerPhoneNumber { get; set; }
         public decimal TotalRating { get; set; }
         public decimal SmokeRating { get; set; }
         public decimal ReligiousRating{ get; set; }
