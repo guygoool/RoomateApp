@@ -1,7 +1,33 @@
 ﻿@model RoomateApp.Models.UserViewModel
 @{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "בית";
 }
+
+<div class="container">
+    @{
+        if (Model != null && Model.Id > 0)
+        {
+            <h1>@Html.Raw($"שלום, {Model.FirstName} {Model.LastName}")</h1>
+            <div class="buttonGroup">
+                <a href="@Url.Action("Index", "UserPref", new { userId = Model.Id })">
+                    <div class="primaryButton">
+                        חיפוש דירה
+                    </div>
+                </a>
+                <a href="@Url.Action("Index", "Apartment", new { userId = Model.Id })">
+                    <div class="secondaryButton">
+                        פרסום דירה
+                    </div>
+                </a>
+            </div>
+        }
+        else
+        {
+            <a href="@Url.Action("Index", "Account")">Sign in</a>
+        }
+    }
+</div>
+
 <style>
     .primaryButton {
         background-color: #7454a5;
@@ -41,26 +67,3 @@
         height: 50vh;
     }
 </style>
-
-@{
-    if (Model != null && Model.Id > 0)
-    {
-        <h1>@Html.Raw($"Hi {Model.FirstName} {Model.LastName}")</h1>
-        <div class="buttonGroup">
-            <a href="@Url.Action("Index", "UserPref", new { userId = Model.Id })">
-                <div class="primaryButton">
-                    Find Apartments
-                </div>
-            </a>
-            <a href="@Url.Action("Index", "Apartment", new { userId = Model.Id })">
-                <div class="secondaryButton">
-                    Publish apartment
-                </div>
-            </a>
-        </div>
-    }
-    else
-    {
-        <a href="@Url.Action("Index", "Account")">Sign in</a>
-    }
-}

@@ -12,6 +12,24 @@
             @Html.HiddenFor(c => c.UserId)
             <div class="prefGroup">
                 <div class="label">
+                    @Html.LabelFor(model => model.MinPriceRange)
+                </div>
+                <div class="radio-group">
+                    @Html.EditorFor(model => model.MinPriceRange, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.MinPriceRange, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="prefGroup">
+                <div class="label">
+                    @Html.LabelFor(model => model.MaxPriceRange)
+                </div>
+                <div class="radio-group">
+                    @Html.EditorFor(model => model.MaxPriceRange, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.MaxPriceRange, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="prefGroup">
+                <div class="label">
                     @Html.LabelFor(model => model.AgePreferenceRate)
                 </div>
                 <div class="radio-group">
@@ -43,7 +61,7 @@
                         @Html.RadioButton("CleanRate", "0", Model.CleanRate == 0, new { @id = "CleanRate_0" })
                     </div>
                     <div>
-                        @Html.Label("AgePreferenceRate_1", "לא חשוב")
+                        @Html.Label("CleanRate_1", "לא חשוב")
                         @Html.RadioButton("CleanRate", "1", Model.CleanRate == 1, new { @id = "CleanRate_1" })
                     </div>
                     <div>
@@ -100,24 +118,6 @@
                         @Html.Label("KosherKitchenRate_5", "חשוב מאוד")
                         @Html.RadioButton("KosherKitchenRate", "5", Model.KosherKitchenRate == 5, new { @id = "KosherKitchenRate_5" })
                     </div>
-                </div>
-            </div>
-            <div class="prefGroup">
-                <div class="label">
-                    @Html.LabelFor(model => model.MaxPriceRange)
-                </div>
-                <div class="radio-group">
-                    @Html.EditorFor(model => model.MaxPriceRange, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.MaxPriceRange, "", new { @class = "text-danger" })
-                </div>
-            </div>
-            <div class="prefGroup">
-                <div class="label">
-                    @Html.LabelFor(model => model.MinPriceRange)
-                </div>
-                <div class="radio-group">
-                    @Html.EditorFor(model => model.MinPriceRange, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.MinPriceRange, "", new { @class = "text-danger" })
                 </div>
             </div>
             <div class="prefGroup">
@@ -195,7 +195,7 @@
                 </div>
                 <div class="radio-group">
                     <div>
-                        @Html.Label("SocialFormatRate", "חשוב שכן")
+                        @Html.Label("SocialFormatRate", "חשוב שלא")
                         @Html.RadioButton("SocialFormatRate", "0", Model.SocialFormatRate == 0, new { @id = "SocialFormatRate_0" })
                     </div>
                     <div>
@@ -215,6 +215,7 @@
         </div>
 
         <div class="form-group">
+            <h6>אנא ציין את המיקום המועדף ע"י גרירה של הסימון האדום למקום הרצוי (יש להתעלם מההתראה של גוגל)</h6>
             <div id="map"></div>
             @*<br>
                 <button id="confirmPosition">Confirm Position</button>
@@ -266,14 +267,6 @@
 </div>
 
 <style>
-    .container {
-        direction: rtl;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: right;
-    }
-
     .form-group {
         display: flex;
         flex-direction: column;

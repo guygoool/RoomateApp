@@ -1,194 +1,347 @@
 ﻿@model RoomateApp.Models.ApartmentViewModel
 @{
-    ViewData["Title"] = "Apartment";
+    ViewData["Title"] = "פרטי דירה";
 }
 
-<h1>Apartment</h1>
-@using (Html.BeginForm())
-{
-    <div class="form-group">
-        @Html.HiddenFor(c => c.Id)
-        @Html.HiddenFor(c => c.UserId)
-        <div>
-            @Html.LabelFor(model => model.Floor)
-            @Html.EditorFor(model => model.Floor, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Floor, "", new { @class = "text-danger" })
+<div class="container">
+    <h1>פרטי דירה</h1>
+    @using (Html.BeginForm())
+    {
+        <div class="form-group">
+            @Html.HiddenFor(c => c.Id)
+            @Html.HiddenFor(c => c.UserId)
+            <div>
+                @Html.LabelFor(model => model.Floor)
+                @Html.EditorFor(model => model.Floor, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Floor, "", new { @class = "text-danger" })
+            </div>
         </div>
-    </div>
-    <div class="form-group">
-        <div>
-            @Html.LabelFor(model => model.RoomsCount)
-            @Html.EditorFor(model => model.RoomsCount, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.RoomsCount, "", new { @class = "text-danger" })
+        <div class="form-group">
+            <div>
+                @Html.LabelFor(model => model.RoomsCount)
+                @Html.EditorFor(model => model.RoomsCount, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.RoomsCount, "", new { @class = "text-danger" })
+            </div>
         </div>
-    </div>
-    <div class="form-group">
-        <div>
-            @Html.LabelFor(model => model.AvailableRoomsCount)
-            @Html.EditorFor(model => model.AvailableRoomsCount, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.AvailableRoomsCount, "", new { @class = "text-danger" })
+        <div class="form-group">
+            <div>
+                @Html.LabelFor(model => model.AvailableRoomsCount)
+                @Html.EditorFor(model => model.AvailableRoomsCount, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.AvailableRoomsCount, "", new { @class = "text-danger" })
+            </div>
         </div>
-    </div>
-    <div class="form-group">
-        <div>
-            @Html.LabelFor(model => model.LeaseStartDate)
-            @Html.EditorFor(model => model.LeaseStartDate, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.LeaseStartDate, "", new { @class = "text-danger" })
+        <div class="form-group">
+            <div>
+                @Html.LabelFor(model => model.LeaseStartDate)
+                @Html.EditorFor(model => model.LeaseStartDate, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.LeaseStartDate, "", new { @class = "text-danger" })
+            </div>
         </div>
-    </div>
-    <div class="form-group">
-        <div>
-            @Html.LabelFor(model => model.HasLift)
-            @Html.EditorFor(model => model.HasLift, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.HasLift, "", new { @class = "text-danger" })
+        <div class="form-group">
+            <div>
+                @Html.LabelFor(model => model.HasLift)
+                @Html.EditorFor(model => model.HasLift, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.HasLift, "", new { @class = "text-danger" })
+            </div>
+            <div>
+                @Html.LabelFor(model => model.HasLivingroom)
+                @Html.EditorFor(model => model.HasLivingroom, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.HasLivingroom, "", new { @class = "text-danger" })
+            </div>
+            <div>
+                @Html.LabelFor(model => model.HasParking)
+                @Html.EditorFor(model => model.HasParking, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.HasParking, "", new { @class = "text-danger" })
+            </div>
         </div>
-        <div>
-            @Html.LabelFor(model => model.HasLivingroom)
-            @Html.EditorFor(model => model.HasLivingroom, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.HasLivingroom, "", new { @class = "text-danger" })
+        <div class="form-group">
+            <div>
+                @Html.LabelFor(model => model.HouseholdPrice)
+                @Html.EditorFor(model => model.HouseholdPrice, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.HouseholdPrice, "", new { @class = "text-danger" })
+            </div>
+            <div>
+                @Html.LabelFor(model => model.TaxPrice)
+                @Html.EditorFor(model => model.TaxPrice, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TaxPrice, "", new { @class = "text-danger" })
+            </div>
         </div>
-        <div>
-            @Html.LabelFor(model => model.HasParking)
-            @Html.EditorFor(model => model.HasParking, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.HasParking, "", new { @class = "text-danger" })
+        <div class="form-group">
+            <div>
+                @Html.LabelFor(model => model.AdditionalComments)
+                @Html.EditorFor(model => model.AdditionalComments, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.AdditionalComments, "", new { @class = "text-danger" })
+            </div>
         </div>
-    </div>
-    <div class="form-group">
-        <div>
-            @Html.LabelFor(model => model.HouseholdPrice)
-            @Html.EditorFor(model => model.HouseholdPrice, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.HouseholdPrice, "", new { @class = "text-danger" })
+        <div class="form-group">
+            <h1>פרטי חדר</h1>
+            <div>
+                @Html.LabelFor(model => model.RoomDetails.RoomRentPrice)
+                @Html.EditorFor(model => model.RoomDetails.RoomRentPrice, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.RoomDetails.RoomRentPrice, "", new { @class = "text-danger" })
+            </div>
+            <div>
+                @Html.LabelFor(model => model.RoomDetails.RoomRentSize)
+                @Html.EditorFor(model => model.RoomDetails.RoomRentSize, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.RoomDetails.RoomRentSize, "", new { @class = "text-danger" })
+            </div>
+            <div>
+                @Html.LabelFor(model => model.RoomDetails.IsPrivateShower)
+                @Html.EditorFor(model => model.RoomDetails.IsPrivateShower, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.RoomDetails.IsPrivateShower, "", new { @class = "text-danger" })
+            </div>
+            <div>
+                @Html.LabelFor(model => model.RoomDetails.IsPrivateToilet)
+                @Html.EditorFor(model => model.RoomDetails.IsPrivateToilet, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.RoomDetails.IsPrivateToilet, "", new { @class = "text-danger" })
+            </div>
+            <div>
+                @Html.LabelFor(model => model.RoomDetails.IsPrivateBalcony)
+                @Html.EditorFor(model => model.RoomDetails.IsPrivateBalcony, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.RoomDetails.IsPrivateBalcony, "", new { @class = "text-danger" })
+            </div>
         </div>
-        <div>
-            @Html.LabelFor(model => model.TaxPrice)
-            @Html.EditorFor(model => model.TaxPrice, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.TaxPrice, "", new { @class = "text-danger" })
-        </div>
-    </div>
-    <div class="form-group">
-        <div>
-            @Html.LabelFor(model => model.AdditionalComments)
-            @Html.EditorFor(model => model.AdditionalComments, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.AdditionalComments, "", new { @class = "text-danger" })
-        </div>
-    </div>
-    <div class="form-group">
-        <h1>Room details</h1>
-        <div>
-            @Html.LabelFor(model => model.RoomDetails.RoomRentPrice)
-            @Html.EditorFor(model => model.RoomDetails.RoomRentPrice, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.RoomDetails.RoomRentPrice, "", new { @class = "text-danger" })
-        </div>
-        <div>
-            @Html.LabelFor(model => model.RoomDetails.RoomRentSize)
-            @Html.EditorFor(model => model.RoomDetails.RoomRentSize, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.RoomDetails.RoomRentSize, "", new { @class = "text-danger" })
-        </div>
-        <div>
-            @Html.LabelFor(model => model.RoomDetails.IsPrivateShower)
-            @Html.EditorFor(model => model.RoomDetails.IsPrivateShower, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.RoomDetails.IsPrivateShower, "", new { @class = "text-danger" })
-        </div>
-        <div>
-            @Html.LabelFor(model => model.RoomDetails.IsPrivateToilet)
-            @Html.EditorFor(model => model.RoomDetails.IsPrivateToilet, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.RoomDetails.IsPrivateToilet, "", new { @class = "text-danger" })
-        </div>
-        <div>
-            @Html.LabelFor(model => model.RoomDetails.IsPrivateBalcony)
-            @Html.EditorFor(model => model.RoomDetails.IsPrivateBalcony, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.RoomDetails.IsPrivateBalcony, "", new { @class = "text-danger" })
-        </div>
-    </div>
-    <div class="form-group">
-        <h1>Preferences</h1>
-        <div>
-            @Html.LabelFor(model => model.Preferences.AgePreferenceRate)
-            @Html.EditorFor(model => model.Preferences.AgePreferenceRate, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Preferences.AgePreferenceRate, "", new { @class = "text-danger" })
-        </div>
-        <div>
-            @Html.LabelFor(model => model.Preferences.SmokeRate)
-            @Html.EditorFor(model => model.Preferences.SmokeRate, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Preferences.SmokeRate, "", new { @class = "text-danger" })
-        </div>
-        <div>
-            @Html.LabelFor(model => model.Preferences.ReligiousRate)
-            @Html.EditorFor(model => model.Preferences.ReligiousRate, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Preferences.ReligiousRate, "", new { @class = "text-danger" })
-        </div>
-        <div>
-            @Html.LabelFor(model => model.Preferences.FoodIssuesRate)
-            @Html.EditorFor(model => model.Preferences.FoodIssuesRate, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Preferences.FoodIssuesRate, "", new { @class = "text-danger" })
-        </div>
-        <div>
-            @Html.LabelFor(model => model.Preferences.KosherKitchenRate)
-            @Html.EditorFor(model => model.Preferences.KosherKitchenRate, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Preferences.KosherKitchenRate, "", new { @class = "text-danger" })
-        </div>
-        <div>
-            @Html.LabelFor(model => model.Preferences.CleanRate)
-            @Html.EditorFor(model => model.Preferences.CleanRate, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Preferences.CleanRate, "", new { @class = "text-danger" })
-        </div>
-        <div>
-            @Html.LabelFor(model => model.Preferences.PetFriendlyRate)
-            @Html.EditorFor(model => model.Preferences.PetFriendlyRate, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Preferences.PetFriendlyRate, "", new { @class = "text-danger" })
-        </div>
-        <div>
-            @Html.LabelFor(model => model.Preferences.SocialFormatRate)
-            @Html.EditorFor(model => model.Preferences.SocialFormatRate, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Preferences.SocialFormatRate, "", new { @class = "text-danger" })
-        </div>
-    </div>
+        <div class="form-group">
+                <h1>העדפות</h1>
+                <div class="prefGroup">
+                    <div class="label">
+                        @Html.LabelFor(model => model.Preferences.CleanRate)
+                    </div>
+                    <div class="radio-group">
+                        <div>
+                            @Html.Label("CleanRate_0", "חשוב שלא")
+                            @Html.RadioButton("Preferences.CleanRate", "0", Model.Preferences?.CleanRate == 0, new { @id = "CleanRate_0" })
+                        </div>
+                        <div>
+                            @Html.Label("CleanRate_1", "לא חשוב")
+                            @Html.RadioButton("Preferences.CleanRate", "1", Model.Preferences?.CleanRate == 1, new { @id = "CleanRate_1" })
+                        </div>
+                        <div>
+                            @Html.Label("CleanRate_3", "חשוב מעט")
+                            @Html.RadioButton("Preferences.CleanRate", "3", Model.Preferences?.CleanRate == 3, new { @id = "CleanRate_3" })
+                        </div>
+                        <div>
+                            @Html.Label("CleanRate_5", "חשוב מאוד")
+                            @Html.RadioButton("Preferences.CleanRate", "5", Model.Preferences?.CleanRate == 5, new { @id = "CleanRate_5" })
+                        </div>
+                    </div>
+                </div>
+                <div class="prefGroup">
+                    <div class="label">
+                        @Html.LabelFor(model => model.Preferences.FoodIssuesRate)
+                    </div>
+                    <div class="radio-group">
+                        <div>
+                            @Html.Label("FoodIssuesRate_0", "חשוב שלא")
+                            @Html.RadioButton("Preferences.FoodIssuesRate", "0", Model.Preferences?.FoodIssuesRate == 0, new { @id = "FoodIssuesRate_0" })
+                        </div>
+                        <div>
+                            @Html.Label("FoodIssuesRate_1", "לא חשוב")
+                            @Html.RadioButton("Preferences.FoodIssuesRate", "1", Model.Preferences?.FoodIssuesRate == 1, new { @id = "FoodIssuesRate_1" })
+                        </div>
+                        <div>
+                            @Html.Label("FoodIssuesRate_3", "חשוב מעט")
+                            @Html.RadioButton("Preferences.FoodIssuesRate", "3", Model.Preferences?.FoodIssuesRate == 3, new { @id = "FoodIssuesRate_3" })
+                        </div>
+                        <div>
+                            @Html.Label("FoodIssuesRate_5", "חשוב מאוד")
+                            @Html.RadioButton("Preferences.FoodIssuesRate", "5", Model.Preferences?.FoodIssuesRate == 5, new { @id = "FoodIssuesRate_5" })
+                        </div>
+                    </div>
+                </div>
+                <div class="prefGroup">
+                    <div class="label">
+                        @Html.LabelFor(model => model.Preferences.KosherKitchenRate)
+                    </div>
+                    <div class="radio-group">
+                        <div>
+                            @Html.Label("KosherKitchenRate_0", "חשוב שלא")
+                            @Html.RadioButton("Preferences.KosherKitchenRate", "0", Model.Preferences?.KosherKitchenRate == 0, new { @id = "KosherKitchenRate_0" })
+                        </div>
+                        <div>
+                            @Html.Label("KosherKitchenRate_1", "לא חשוב")
+                            @Html.RadioButton("Preferences.KosherKitchenRate", "1", Model.Preferences?.KosherKitchenRate == 1, new { @id = "KosherKitchenRate_1" })
+                        </div>
+                        <div>
+                            @Html.Label("KosherKitchenRate_3", "חשוב מעט")
+                            @Html.RadioButton("Preferences.KosherKitchenRate", "3", Model.Preferences?.KosherKitchenRate == 3, new { @id = "KosherKitchenRate_3" })
+                        </div>
+                        <div>
+                            @Html.Label("KosherKitchenRate_5", "חשוב מאוד")
+                            @Html.RadioButton("Preferences.KosherKitchenRate", "5", Model.Preferences?.KosherKitchenRate == 5, new { @id = "KosherKitchenRate_5" })
+                        </div>
+                    </div>
+                </div>
+                <div class="prefGroup">
+                    <div class="label">
+                        @Html.LabelFor(model => model.Preferences.PetFriendlyRate)
+                    </div>
+                    <div class="radio-group">
+                        <div>
+                            @Html.Label("PetFriendlyRate", "חשוב שלא")
+                            @Html.RadioButton("Preferences.PetFriendlyRate", "0", Model.Preferences?.PetFriendlyRate == 0, new { @id = "PetFriendlyRate" })
+                        </div>
+                        <div>
+                            @Html.Label("PetFriendlyRate_1", "לא חשוב")
+                            @Html.RadioButton("Preferences.PetFriendlyRate", "1", Model.Preferences?.PetFriendlyRate == 1, new { @id = "PetFriendlyRate_1" })
+                        </div>
+                        <div>
+                            @Html.Label("PetFriendlyRate_3", "חשוב מעט")
+                            @Html.RadioButton("Preferences.PetFriendlyRate", "3", Model.Preferences?.PetFriendlyRate == 3, new { @id = "PetFriendlyRate_3" })
+                        </div>
+                        <div>
+                            @Html.Label("PetFriendlyRate_5", "חשוב מאוד")
+                            @Html.RadioButton("Preferences.PetFriendlyRate", "5", Model.Preferences?.PetFriendlyRate == 5, new { @id = "PetFriendlyRate_5" })
+                        </div>
+                    </div>
+                </div>
+                <div class="prefGroup">
+                    <div class="label">
+                        @Html.LabelFor(model => model.Preferences.ReligiousRate)
+                    </div>
+                    <div class="radio-group">
+                        <div>
+                            @Html.Label("ReligiousRate", "חשוב שלא")
+                            @Html.RadioButton("Preferences.ReligiousRate", "0", Model.Preferences?.ReligiousRate == 0, new { @id = "ReligiousRate" })
+                        </div>
+                        <div>
+                            @Html.Label("ReligiousRate_1", "לא חשוב")
+                            @Html.RadioButton("Preferences.ReligiousRate", "1", Model.Preferences?.ReligiousRate == 1, new { @id = "ReligiousRate_1" })
+                        </div>
+                        <div>
+                            @Html.Label("ReligiousRate_3", "חשוב מעט")
+                            @Html.RadioButton("Preferences.ReligiousRate", "3", Model.Preferences?.ReligiousRate == 3, new { @id = "ReligiousRate_3" })
+                        </div>
+                        <div>
+                            @Html.Label("ReligiousRate_5", "חשוב מאוד")
+                            @Html.RadioButton("Preferences.ReligiousRate", "5", Model.Preferences?.ReligiousRate == 5, new { @id = "ReligiousRate_5" })
+                        </div>
+                    </div>
+                </div>
+                <div class="prefGroup">
+                    <div class="label">
+                        @Html.LabelFor(model => model.Preferences.SmokeRate)
+                    </div>
+                    <div class="radio-group">
+                        <div>
+                            @Html.Label("SmokeRate", "חשוב שכן")
+                            @Html.RadioButton("Preferences.SmokeRate", "0", Model.Preferences?.SmokeRate == 0, new { @id = "SmokeRate" })
+                        </div>
+                        <div>
+                            @Html.Label("SmokeRate_1", "לא חשוב")
+                            @Html.RadioButton("Preferences.SmokeRate", "1", Model.Preferences?.SmokeRate == 1, new { @id = "SmokeRate_1" })
+                        </div>
+                        <div>
+                            @Html.Label("SmokeRate_3", "חשוב מעט")
+                            @Html.RadioButton("Preferences.SmokeRate", "3", Model.Preferences?.SmokeRate == 3, new { @id = "SmokeRate_3" })
+                        </div>
+                        <div>
+                            @Html.Label("SmokeRate_5", "חשוב מאוד")
+                            @Html.RadioButton("Preferences.SmokeRate", "5", Model.Preferences?.SmokeRate == 5, new { @id = "SmokeRate_5" })
+                        </div>
+                    </div>
+                </div>
+                <div class="prefGroup">
+                    <div class="label">
+                        @Html.LabelFor(model => model.Preferences.SocialFormatRate)
+                    </div>
+                    <div class="radio-group">
+                        <div>
+                            @Html.Label("SocialFormatRate", "חשוב שלא")
+                            @Html.RadioButton("Preferences.SocialFormatRate", "0", Model.Preferences?.SocialFormatRate == 0, new { @id = "SocialFormatRate_0" })
+                        </div>
+                        <div>
+                            @Html.Label("SocialFormatRate_1", "לא חשוב")
+                            @Html.RadioButton("Preferences.SocialFormatRate", "1", Model.Preferences?.SocialFormatRate == 1, new { @id = "SocialFormatRate_1" })
+                        </div>
+                        <div>
+                            @Html.Label("SocialFormatRate_3", "חשוב מעט")
+                            @Html.RadioButton("Preferences.SocialFormatRate", "3", Model.Preferences?.SocialFormatRate == 3, new { @id = "SocialFormatRate_3" })
+                        </div>
+                        <div>
+                            @Html.Label("SocialFormatRate_5", "חשוב מאוד")
+                            @Html.RadioButton("Preferences.SocialFormatRate", "5", Model.Preferences?.SocialFormatRate == 5, new { @id = "SocialFormatRate_5" })
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-    <div class="form-group">
-        <div id="map"></div>
-        @*<br>
-            <button id="confirmPosition">Confirm Position</button>
-            <br>*@
-        <input type="hidden" id="Latitude" name="Latitude" value="" />
-        <input type="hidden" id="Longitude" name="Longitude" value="" />
-        @*<span id="onIdlePositionView">
-            <span id="onClickPositionView">*@
-        <script>
-            // Get element references
-            //var confirmBtn = document.getElementById('confirmPosition');
-            //var onClickPositionView = document.getElementById('onClickPositionView');
-            //var onIdlePositionView = document.getElementById('onIdlePositionView');
-            var latitude = document.getElementById('Latitude');
-            var longitude = document.getElementById('Longitude');
+        <div class="form-group">
+            <h6>אנא ציין את המיקום המועדף ע"י גרירה של הסימון האדום למקום הרצוי (יש להתעלם מההתראה של גוגל)</h6>
+            <div id="map"></div>
+            @*<br>
+                <button id="confirmPosition">Confirm Position</button>
+                <br>*@
+            <input type="hidden" id="Latitude" name="Latitude" value="32.0853" />
+            <input type="hidden" id="Longitude" name="Longitude" value="34.7818" />
+            @*<span id="onIdlePositionView">
+                <span id="onClickPositionView">*@
+            <script>
+                // Get element references
+                //var confirmBtn = document.getElementById('confirmPosition');
+                //var onClickPositionView = document.getElementById('onClickPositionView');
+                //var onIdlePositionView = document.getElementById('onIdlePositionView');
+                var latitude = document.getElementById('Latitude');
+                var longitude = document.getElementById('Longitude');
 
-            // Initialize locationPicker plugin
-            var lp = new locationPicker('map', {
-                setCurrentPosition: true, // You can omit this, defaults to true
-            }, {
-                zoom: 15 // You can set any google map options here, zoom defaults to 15
-            });
+                // Initialize locationPicker plugin
+                var lp = new locationPicker('map', {
+                    setCurrentPosition: true, // You can omit this, defaults to true
+                }, {
+                    zoom: 15 // You can set any google map options here, zoom defaults to 15
+                });
 
-            // Listen to button onclick event
-            //confirmBtn.onclick = function () {
-            //    // Get current location and show it in HTML
-            //    var location = lp.getMarkerPosition();
-            //    onClickPositionView.innerHTML = 'The chosen location is ' + location.lat + ',' + location.lng;
-            //};
+                // Listen to button onclick event
+                //confirmBtn.onclick = function () {
+                //    // Get current location and show it in HTML
+                //    var location = lp.getMarkerPosition();
+                //    onClickPositionView.innerHTML = 'The chosen location is ' + location.lat + ',' + location.lng;
+                //};
 
-            // Listen to map idle event, listening to idle event more accurate than listening to ondrag event
-            google.maps.event.addListener(lp.map, 'idle', function (event) {
-                // Get current location and show it in HTML
-                var location = lp.getMarkerPosition();
-                //onIdlePositionView.innerHTML = 'The chosen location is ' + location.lat + ',' + location.lng;
-                latitude.value = location.lat;
-                longitude.value = location.lng;
-            });
-        </script>
-    </div>
-
-    <div class="form-group">
-        <div>
-            <input type="submit" value="Save" />
+                // Listen to map idle event, listening to idle event more accurate than listening to ondrag event
+                google.maps.event.addListener(lp.map, 'idle', function (event) {
+                    // Get current location and show it in HTML
+                    var location = lp.getMarkerPosition();
+                    //onIdlePositionView.innerHTML = 'The chosen location is ' + location.lat + ',' + location.lng;
+                    latitude.value = location.lat;
+                    longitude.value = location.lng;
+                });
+            </script>
         </div>
-    </div>
-}
+
+        <div class="form-group">
+            <div>
+                <input type="submit" value="שמור" />
+            </div>
+        </div>
+    }
+</div>
+
+<style>
+    .form-group {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .label {
+        font-weight: 500;
+    }
+
+    .radio-group {
+        display: flex;
+        flex-direction: row;
+        width: 60%;
+    }
+
+    .prefGroup {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+    }
+
+    .radio-input {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+</style>

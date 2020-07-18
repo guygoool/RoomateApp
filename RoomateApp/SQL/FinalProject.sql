@@ -59,7 +59,7 @@ Available_Rooms TINYINT,
 Has_Livingroom BIT DEFAULT 1,
 Household_Price NUMERIC(8),
 Tax_Price NUMERIC(8),
-Additional_Comments VARCHAR(1000),
+Additional_Comments NVARCHAR(1000),
 Geo_Location GEOGRAPHY,
 CONSTRAINT fk_Apartment_User FOREIGN KEY (User_Id)
 				REFERENCES Users(Id)
